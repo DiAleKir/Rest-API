@@ -1,0 +1,15 @@
+import requests
+
+from methods.base_methods import BaseMethods
+from models.object_model import CreateObjectModel
+
+
+class CreateObject(BaseMethods):
+
+    def create_object(self):
+
+        self.response = requests.post(
+            url= self.endpoints.ADD_OBJECT,
+            json=self.payloads.new_object
+        )
+        CreateObjectModel(**self.response.json())
