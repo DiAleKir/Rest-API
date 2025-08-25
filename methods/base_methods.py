@@ -3,7 +3,6 @@ from payloads.payloads import Payloads
 
 
 class BaseMethods:
-
     endpoints = Endpoints()
     payloads = Payloads()
     response = None
@@ -18,3 +17,10 @@ class BaseMethods:
     def check_name(self):
         assert self.response.json()["name"] == self.payloads.new_object["name"]
         return True
+
+    def check_response_body_is_not_empty(self):
+        assert self.response.json() is not None
+
+    def check_object_id(self, id_1, id_2):
+        assert self.response.json()[0]['id'] == str(id_1)
+        assert self.response.json()[1]['id'] == str(id_2)
