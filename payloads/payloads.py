@@ -27,3 +27,28 @@ class Payloads:
         }
     }
 
+    patch_object = [
+        {
+            "name": f"Apple MacBook Pro {random.randint(14, 18)}"
+        },
+        {
+            "data": {
+                "year": random.randint(2015, 2025)
+            }
+        },
+        {
+            "data": {
+                "price": random.randint(1500, 3000)
+            }
+        },
+        {
+            "data": {
+                "CPU model": f"Intel Core {random.choice(cpu)}"
+            }
+        },
+        {
+            "data": {
+                "Hard disk size": random.choice(hard_disk)
+            }
+        }
+    ]
