@@ -7,9 +7,9 @@ from models.object_model import CreateObjectModel
 class CreateObject(BaseMethods):
 
     def create_object(self):
-
         self.response = requests.post(
-            url= self.endpoints.ADD_OBJECT,
+            url=self.endpoints.ADD_OBJECT,
             json=self.payloads.new_object
         )
-        CreateObjectModel(**self.response.json())
+        model = CreateObjectModel(**self.response.json())
+        return model.id
