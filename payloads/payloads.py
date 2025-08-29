@@ -33,22 +33,11 @@ class Payloads:
         },
         {
             "data": {
-                "year": random.randint(2015, 2025)
-            }
-        },
-        {
-            "data": {
-                "price": random.randint(1500, 3000)
-            }
-        },
-        {
-            "data": {
-                "CPU model": f"Intel Core {random.choice(cpu)}"
-            }
-        },
-        {
-            "data": {
-                "Hard disk size": random.choice(hard_disk)
+                "year": random.randint(2015, 2025),
+                "price": random.randint(1500, 3000),
+                "CPU model": f"Intel Core {random.choice(cpu)}",
+                "Hard disk size": random.choice(hard_disk),
+                "color": "Silver"
             }
         }
     ]
