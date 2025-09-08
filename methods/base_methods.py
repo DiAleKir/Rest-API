@@ -1,13 +1,14 @@
 import allure
 
 from endpoints.endpoints import Endpoints
-from payloads.payloads import Payloads
+from payloads.payloads import Payloads, PayloadsNegative
 
 
 class BaseMethods:
     endpoints = Endpoints()
     payloads = Payloads()
     response = None
+    payloads_neg = PayloadsNegative()
 
     @allure.step("Проверить, что пришёл 200 статус код")
     def check_response_is_200(self):
@@ -31,3 +32,8 @@ class BaseMethods:
     def check_object_id(self, id_1, id_2):
         assert self.response.json()[0]['id'] == str(id_1)
         assert self.response.json()[1]['id'] == str(id_2)
+
+    def check_response_is_400(self):
+        assert self.response.status_code == 400, self.response.json()
+
+
