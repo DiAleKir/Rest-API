@@ -29,11 +29,18 @@ class BaseMethods:
         assert self.response.json() is not None
 
     @allure.step("Проверить, что id объектов соответстуют искомым")
-    def check_object_id(self, id_1, id_2):
+    def check_objects_id(self, id_1, id_2):
         assert self.response.json()[0]['id'] == str(id_1)
         assert self.response.json()[1]['id'] == str(id_2)
 
+    @allure.step("Проверить, что пришел 400 статус код")
     def check_response_is_400(self):
         assert self.response.status_code == 400, self.response.json()
 
+    @allure.step("Проверить, что в ответе от сервера пустой лист")
+    def check_response_body_is_empty_list(self):
+        assert self.response.json() == []
 
+    @allure.step("ПРоверить, что id объекта соответствует искомому")
+    def check_single_object_id(self, id_1):
+        assert self.response.json()[0]['id'] == str(id_1)

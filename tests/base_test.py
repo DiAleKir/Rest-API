@@ -1,6 +1,6 @@
 from methods.create_object import CreateObject, CreateObjectNegative
 from methods.delete_object import DeleteObject
-from methods.get_object import GetObject
+from methods.get_object import GetObject, GetObjectNegative
 from methods.update_object import UpdateObject
 
 
@@ -12,3 +12,4 @@ class BaseTest:
         self.delete_object = DeleteObject()
         self.update_object = UpdateObject()
         self.create_object_neg = CreateObjectNegative()
+        self.get_object_neg = GetObjectNegative()
